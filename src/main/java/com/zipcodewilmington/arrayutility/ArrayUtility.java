@@ -1,6 +1,7 @@
 package com.zipcodewilmington.arrayutility;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -45,7 +46,6 @@ public class ArrayUtility<T> {
             for (int j = i+1; j < al.size(); j++) {
                 if(tempValue == al.get(j)) {
                     tempCount++;
-                    System.out.println();
                     //System.out.println("Value '"+tempValue+"' count: "+tempCount);
                 }
             }
@@ -75,10 +75,17 @@ public class ArrayUtility<T> {
                 newAL.add(obj);
             }
         }
-        //T[] newArr = new T[newAL.size()];
+
+        //T[] arr = new T[newAL.size()];
         //1. Arrays.copyOf
-        //2. (T[])Array.newInstance
-        return null;
+        T[] arr = Arrays.copyOf(inputArr, (newAL.size()));
+        //2. (T[]) Array.newInstance()
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = newAL.get(i);
+        }
+
+        return arr;
     }
 
 }
